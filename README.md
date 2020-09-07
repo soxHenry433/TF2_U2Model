@@ -1,13 +1,16 @@
 # TF2_U2Model
 -This is the U2 model for segmentation implemented in Tensorflow 2.3
+
 -With training data set consisting of around 3000 dicom hand images, we can achive test IOU of 0.87 in 200 epoch
 
 
 
 ## Reference from 
 - U2-Net: Going Deeper with Nested U-Structure for Salient Object Detection
+
   https://arxiv.org/pdf/2005.09007.pdf
 - pytorch implemtation (We revised the code to tensorflow version)
+
   https://github.com/NathanUA/U-2-Net
 
 
