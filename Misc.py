@@ -126,3 +126,6 @@ class MetricCollector():
         tf.print(ff, output_stream = LOGDIR)
 
 
+def GetBASE_DIR():
+    BASE_DIR=os.path.dirname(os.path.abspath(__file__))
+    return os.path.realpath(BASE_DIR+'/../')

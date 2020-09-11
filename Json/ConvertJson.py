@@ -192,36 +192,37 @@ class myCoCoObj():
 
 
 if __name__ == "__main__":
-    DA = pd.read_csv("Data_info_JSON")
+    DA = pd.read_csv("Data_info_json")
     uniq_id = DA.ID.unique()
     random.shuffle(uniq_id)
-    ii = len(uniq_id) // 7
+    ii = len(uniq_id) // 6
     DA_val = DA.loc[DA.ID.isin(uniq_id[:ii])]
-    DA_test = DA.loc[DA.ID.isin(uniq_id[ii*6:])]
-    DA_train = DA.loc[DA.ID.isin(uniq_id[ii:ii*6])]
+    DA_test = DA.loc[DA.ID.isin(uniq_id[ii*5:])]
+    DA_train = DA.loc[DA.ID.isin(uniq_id[ii:ii*5])]
     
-    DA_val.loc["divide"] = "val"
-    DA_test.loc["divide"] = "test"
-    DA_train.loc["divide"] = "train"
+    DA_val["divide"] = "val"
+    DA_test["divide"] = "test"
+    DA_train["divide"] = "train"
 
     mycoco = myCoCoObj()
-    mycoco.FromJson("All0904.json")
+    mycoco.FromJson("Disc0909.json")
     
     test_coco = copy.deepcopy(mycoco)
     test_coco.Extract(DA_test.Path)
     test_coco.Finalize()
-    test_coco.SaveJson("Test0904.json")
+    test_coco.SaveJson("Test0910.json")
 
     test_coco = copy.deepcopy(mycoco)
     test_coco.Extract(DA_val.Path)
     test_coco.Finalize()
-    test_coco.SaveJson("Val0904.json")
+    test_coco.SaveJson("Val0910.json")
     
     test_coco = copy.deepcopy(mycoco)
     test_coco.Extract(DA_train.Path)
     test_coco.Finalize()
-    test_coco.SaveJson("Train0904.json")
+    test_coco.SaveJson("Train0910.json")
 
     DA = pd.concat([DA_val,DA_test,DA_train])
     
-    DA.to_csv("Data_info_JSON0904",index=False)
+    DA.to_csv("Data_info_json0910",index=False)
+    
