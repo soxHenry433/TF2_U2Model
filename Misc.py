@@ -5,12 +5,7 @@ import os
 import tensorflow as tf
 
 
-#BASE_DIR="/soxhenry/Glaucoma/"
-def GetBASE_DIR():
-    BASE_DIR=os.path.dirname(os.path.abspath(__file__))
-    return os.path.realpath(BASE_DIR+'/../../')
 
-BASE_DIR = GetBASE_DIR()
 
         
 
@@ -129,3 +124,5 @@ class MetricCollector():
 def GetBASE_DIR():
     BASE_DIR=os.path.dirname(os.path.abspath(__file__))
     return os.path.realpath(BASE_DIR+'/../')
+    
+BASE_DIR = GetBASE_DIR()
